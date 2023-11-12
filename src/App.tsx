@@ -7,17 +7,11 @@
 
 import React from 'react';
 // import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  // StyleSheet,
-  Text,
-  useColorScheme,
-  // View,
-} from 'react-native';
+import {StatusBar, useColorScheme} from 'react-native';
+import {PaperProvider} from 'react-native-paper';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import RootNav from './app/navigation/RootNav';
 
 // type SectionProps = PropsWithChildren<{
 //   title: string;
@@ -58,37 +52,14 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <PaperProvider>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Text>hello</Text>
-      </ScrollView>
-    </SafeAreaView>
+      <RootNav />
+    </PaperProvider>
   );
 }
-
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
 
 export default App;
